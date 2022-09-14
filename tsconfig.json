@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"strict": true,
+		"moduleResolution": "Node",
+		"noUnusedLocals": true,
+		"noImplicitAny": true,
+		"noUncheckedIndexedAccess": true,
+		"allowSyntheticDefaultImports": true,
+		"lib": ["ESNext", "DOM"],
+		"types": ["vitest", "vite/client"]
+	},
+	"exclude": ["dist", "node_modules"]
+}

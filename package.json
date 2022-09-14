@@ -1,0 +1,17 @@
+{
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build:client": "vite build",
+		"build:server": "vite build -m server",
+		"preview": "vite preview",
+		"test": "vitest run -r ."
+	},
+	"devDependencies": {
+		"@types/node": "^18.7.16",
+		"cac": "^6.7.14",
+		"vite": "latest",
+		"vitest": "latest"
+	},
+	"type": "module"
+}
