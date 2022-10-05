@@ -1,12 +1,8 @@
 import { defineConfig } from "vite"
 
-export default defineConfig(({ mode }) => ({
-	root: "./src/client",
-	appType: "spa",
+export default defineConfig({
 	build: {
-		ssr: mode === "server" ? "../server/index.ts" : undefined,
-		outDir: mode === "server" ? "../../dist/server" : "../../dist/client",
-		emptyOutDir: true,
+		outDir: "dist/client",
 	},
 	plugins: [
 		{
@@ -14,14 +10,14 @@ export default defineConfig(({ mode }) => ({
 			configureServer(vite) {
 				vite.middlewares.use(async (req, res, next) => {
 					if (req.url!.startsWith("/api")) {
-						let { handle } = await vite.ssrLoadModule("../server/start.ts")
+						let { handle } = await vite.ssrLoadModule("./server.ts")
 						return handle(req, res)
 					}
 					next()
 				})
 			},
 			async configurePreviewServer(vite) {
-				let path = "./dist/server/index.js"
+				let path = "./dist/server/server.js"
 				let { handle } = await import(path)
 				vite.middlewares.use((req, res, next) => {
 					if (req.url!.startsWith("/api")) {
@@ -32,4 +28,4 @@ export default defineConfig(({ mode }) => ({
 			},
 		},
 	],
-}))
+})

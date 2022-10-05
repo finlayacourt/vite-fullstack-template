@@ -3,9 +3,9 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build:client": "vite build",
-		"build:server": "vite build -m server",
+		"build:server": "vite build --outDir dist/server --ssr server.ts",
 		"preview": "vite preview",
-		"test": "vitest run -r ."
+		"test": "vitest run"
 	},
 	"devDependencies": {
 		"@types/node": "^18.7.16",
